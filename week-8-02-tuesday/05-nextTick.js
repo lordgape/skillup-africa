@@ -25,4 +25,4 @@ process.nextTick(mustRun);
 // Babaola => Start of log, I came after now, Next tick is been printed, Now is the time, Set timeout is called
 
 // Assignment
-// What is the difference between setImmediately and setTimeout
+// What is the difference between setImmediate and setTimeout
