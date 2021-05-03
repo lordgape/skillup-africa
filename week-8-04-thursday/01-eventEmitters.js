@@ -3,7 +3,7 @@
 const events = require("events");
 const eventEmitter = new events();
 
-eventEmitter.on("write", (data) => {
+eventEmitter.on("start", (data) => {
     console.log(`I was triggered ${data}`);
 })
 
