@@ -16,9 +16,9 @@ module.exports = (app) => {
 
 
 // Route
-// middleware use with route pattern and handle
+// middleware use function with route pattern and handler
 // http verb of the express function
-// middleware use with route pattern and exported router module
+// middleware use function with route pattern and exported router module
 
 
 // User Module

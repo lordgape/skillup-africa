@@ -1,8 +1,8 @@
 
-- Initialize a project
-- Create an express app.
-- Create route
-- Create Middlewares
+- Initialize a project => done
+- Create an express app. => done
+- Create route => done
+- Create Middlewares 
 - Create CRUD
 - Create Controllers,
 - Create Services
