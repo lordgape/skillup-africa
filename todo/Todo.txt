@@ -2,8 +2,8 @@
 - Initialize a project => done
 - Create an express app. => done
 - Create route => done
-- Create Middlewares 
-- Create CRUD
+- Create Middlewares => Done
+- Create CRUD => Done
 - Create Controllers,
 - Create Services
 - Port DB to SQL (MySQL)

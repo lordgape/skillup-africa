@@ -1,15 +1,15 @@
-const userRoute = require('./userRoutes');
+const todoRoute = require('./todoRoutes');
 
 module.exports = (app) => {
   app.use('/health', (req, res) => {
     res.send("I'm in a good working condition");
   });
 
-  app.use('/users', userRoute);
+  app.use('/todos', todoRoute);
 
   app.get('/', (req, res) => {
     console.log(`I go here`);
-    res.send('This is the root call');
+    res.json({"success": 'You just Ping me !'});
   });
 };
 
