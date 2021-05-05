@@ -2,18 +2,11 @@ const express = require('express');
 const routes = require('./routes');
 const multer = require("multer");
 const bodyParser = require("body-parser") // queryString or qs
-
-const upload = multer();
+const middleware = require("./middleware")
 
 const app = express();
 
-// TODO organised the middleware to have its own file. Just like the route .
-
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-
-// TODO add a rate limiter to this application 
-
+middleware(app);
 routes(app);
 
 
