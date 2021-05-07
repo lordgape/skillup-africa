@@ -1,13 +1,18 @@
 
-- Initialize a project => done
-- Create an express app. => done
-- Create route => done
+- Initialize a project => Done
+- Create an express app. => Done
+- Create route => Done
 - Create Middlewares => Done
 - Create CRUD => Done
-- Create Controllers,
-- Create Services
+- Create Controllers => Done,
+- Create Services => Done
+- Port DB to NoSQL (Mongodb) => Done
 - Port DB to SQL (MySQL)
-- Port DB to NoSQL (Mongodb)
 - Create Views for todos
 - Write Unit test
+
+// Todo schema
+- uniqueId
+- description
+- isComopleted
 
