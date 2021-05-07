@@ -5,7 +5,7 @@ const TodoController = require('../controllers/TodoController');
  * List all todos
  */
 router.get('/', (req, res) => {
-  res.json({ code: 'SUCCESS', success: todosDB, error: null });
+  TodoController.getAllTodos(req,res)
 });
 
 /**

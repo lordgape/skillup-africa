@@ -1,0 +1,3 @@
+{
+    "mongodbURl": "mongodb+srv://admin:<password>@cluster0.tmbar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
