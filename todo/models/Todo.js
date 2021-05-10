@@ -12,6 +12,9 @@ const todoSchema = Mongoose.Schema({
     isCompleted: {
         type:Boolean,
         default:false
+    },
+    priority: {
+        type:Number
     }
 });
 
