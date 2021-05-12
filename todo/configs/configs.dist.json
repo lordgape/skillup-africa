@@ -1,3 +1,13 @@
 {
-    "mongodbURl": "mongodb+srv://admin:<password>@cluster0.tmbar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodbURl": "mongodb+srv://admin:<password>@cluster0.tmbar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mysql": {
+        "options": {
+          "host": "127.0.0.1",
+          "port": 3406,
+          "database": "skillupafrica",
+          "dialect": "mysql",
+          "username": "YOUR_USERNAME",
+          "password": "YOUR_PASSWORD"
+        }
+    }
 }

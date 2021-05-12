@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
-const Todo = require('../models/Todo');
+// const Todo = require('../models/mongoose/Todo');
+const Model = require('../models/sequelize');
 
 module.exports = class TodoService {
   /**
@@ -8,14 +9,23 @@ module.exports = class TodoService {
    * @param {number} priority Specify its priority
    */
   static async createTodo(description, priority) {
-    let newTodo = new Todo({
-      uniqueId: uuidv4(),
+    // let newTodo = new Todo({
+    //   uniqueId: uuidv4(),
+    //   description,
+    //   isCompleted: false,
+    //   priority
+    // });
+
+    // return newTodo.save();
+
+    let newTodo = Model.Todo.create({
+      uniqueid: uuidv4(),
       description,
-      isCompleted: false,
-      priority
+      iscompleted: false,
     });
 
-    return newTodo.save();
+    return newTodo;
+
   }
 
   /**
@@ -23,7 +33,9 @@ module.exports = class TodoService {
    * @description Returns all todos created on the system
    */
   static async getAllTodos() {
-    return Todo.find().sort({ description: 1 });
+    // return Todo.find().sort({ description: 1 });
+
+    return Model.Todo.findAll();
   }
 
   /**
@@ -32,10 +44,6 @@ module.exports = class TodoService {
    * @param {string} id means Todo unique id
    */
   static async getTodoById(id) {
-    return Todo.findOne({ uniqueId: id });
-  }
-  
-  static async getTodoByProperty(property) {
     return Todo.findOne({ uniqueId: id });
   }
 

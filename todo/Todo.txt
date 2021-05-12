@@ -14,5 +14,7 @@
 // Todo schema
 - uniqueId
 - description
-- isComopleted
+- isCompleted
+
+
 
