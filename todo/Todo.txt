@@ -7,8 +7,8 @@
 - Create Controllers => Done,
 - Create Services => Done
 - Port DB to NoSQL (Mongodb) => Done
-- Port DB to SQL (MySQL)
-- Create Views for todos
+- Port DB to SQL (MySQL) => Done
+- Create Views for todos =>  Done
 - Write Unit test
 
 // Todo schema
@@ -16,5 +16,4 @@
 - description
 - isCompleted
 
-
-
+Render("mytodo",{listOfTod}) 
