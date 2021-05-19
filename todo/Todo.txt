@@ -9,6 +9,8 @@
 - Port DB to NoSQL (Mongodb) => Done
 - Port DB to SQL (MySQL) => Done
 - Create Views for todos =>  Done
+- Add security
+- Add validation 
 - Write Unit test
 
 // Todo schema
