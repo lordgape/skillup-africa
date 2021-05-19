@@ -3,6 +3,7 @@ const TodoService = require('../services/TodoService');
 module.exports = class TodoController {
   static async createTodo(request, response) {
     try {
+      
       let newTodo = await TodoService.createTodo(request.body.description, request.body.priority);
 
       response.status(201).json({ code: 'SUCCESS', success: newTodo, error: null });

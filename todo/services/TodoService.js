@@ -1,6 +1,13 @@
 const { v4: uuidv4 } = require('uuid');
 // const Todo = require('../models/mongoose/Todo');
 const Model = require('../models/sequelize');
+const TodoValidation = require('../validation/TodoValidation');
+
+
+
+// Todo 1: Write a custom validator that uses only javascript to validate this application need.
+// Todo 2: Complete other validation of the TodoService using validtor package or other third party solution.
+// Todo 3: Validate the user is sending property description
 
 module.exports = class TodoService {
   /**
@@ -9,15 +16,13 @@ module.exports = class TodoService {
    * @param {number} priority Specify its priority
    */
   static async createTodo(description, priority) {
-    // let newTodo = new Todo({
-    //   uniqueId: uuidv4(),
-    //   description,
-    //   isCompleted: false,
-    //   priority
-    // });
 
-    // return newTodo.save();
+    // // const {error, isValid } = await TodoValidation.todoCreation(description)
 
+    // if(!isValid) {
+    //   throw new Error(error.description);
+    // }
+  
     let newTodo = Model.Todo.create({
       uniqueid: uuidv4(),
       description,
