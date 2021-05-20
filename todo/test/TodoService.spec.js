@@ -1,0 +1,33 @@
+const { expect } = require('chai');
+const TodoService = require('../services/TodoService');
+const sequelizeMock = require('sequelize-mock');
+const proxyquire = require('proxyquire');
+
+const dbMock = new sequelizeMock();
+
+const TodoModel = dbMock.define('Todo', {
+  id: 4,
+  uniqueid: '7ff6efce-12f6-4728-912d-ef8b148a4033',
+  description: 'This is a test Todo',
+  iscompleted: false,
+  updatedAt: '2021-05-20T16:52:16.850Z',
+  createdAt: '2021-05-20T16:52:16.850Z'
+});
+
+describe('Todo', () => {
+  beforeEach(() => {
+    proxyquire('../models/sequelize', {
+      Todo: TodoModel
+    });
+  });
+
+  it('Can create todo', async () => {
+    // let result = await TodoService.createTodo('This is a test Todo');
+    let result = await TodoModel.findOne({where: {id: 4}});
+    // result = result.get({ plain: true });
+    console.log("result",result);
+    
+
+    // expect(result).deep.equal(mockTodo);
+  });
+});
