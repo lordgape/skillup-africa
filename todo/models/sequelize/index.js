@@ -8,7 +8,7 @@ const sequelizeInstance = new Sequelize(configs.mysql.options);
 sequelizeInstance
   .authenticate()
   .then(() => console.log(`..... I'm inside the DB!`))
-  .catch((error) => console.log(err.message || 'oops! mysl failed'));
+  .catch((error) => console.log(error.message || 'oops! mysl failed'));
 
 let db = { Todo: Todo(sequelizeInstance, Sequelize.DataTypes) };
 
