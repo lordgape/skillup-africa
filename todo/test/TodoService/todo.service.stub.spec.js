@@ -55,7 +55,7 @@ describe('TodoService: Using Stub Database', () => {
     expect(actual.getModel()).to.deep.equal(expected.getModel());
   });
   
-  it('should fail if no description was pass', async () => {
+  it('Reject Todo with no description', async () => {
     try {
       await TodoService.createTodo('');
     } catch (error) {
