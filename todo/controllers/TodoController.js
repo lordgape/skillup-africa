@@ -3,7 +3,6 @@ const TodoService = require('../services/TodoService');
 module.exports = class TodoController {
   static async createTodo(request, response) {
     try {
-      
       let newTodo = await TodoService.createTodo(request.body.description, request.body.priority);
 
       response.status(201).json({ code: 'SUCCESS', success: newTodo, error: null });
@@ -13,7 +12,7 @@ module.exports = class TodoController {
         .json({ code: 'FAILED', success: null, error: error.message || 'Oops you cannot create todo at the moment' });
     }
   }
-  
+
   static async getAllTodos(request, response) {
     try {
       let allTodos = await TodoService.getAllTodos();
@@ -22,7 +21,11 @@ module.exports = class TodoController {
     } catch (error) {
       response
         .status(500)
-        .json({ code: 'FAILED', success: null, error: error.message || 'Oops you cannot list all todos at the moment' });
+        .json({
+          code: 'FAILED',
+          success: null,
+          error: error.message || 'Oops you cannot list all todos at the moment'
+        });
     }
   }
 
@@ -37,7 +40,7 @@ module.exports = class TodoController {
         .json({ code: 'FAILED', success: null, error: error.message || 'Oops you cannot create todo at the moment' });
     }
   }
-  
+
   static async deleteTodoById(request, response) {
     try {
       let deletedTodo = await TodoService.deleteTodoById(request.params.id);
@@ -50,3 +53,6 @@ module.exports = class TodoController {
     }
   }
 };
+
+
+//

@@ -10,8 +10,8 @@
 - Port DB to SQL (MySQL) => Done
 - Create Views for todos =>  Done
 - Add security => Done
-- Add validation => 
-- Write Unit test
+- Add validation => Done
+- Write Unit test => 
 
 // Todo schema
 - uniqueId

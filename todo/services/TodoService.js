@@ -3,8 +3,6 @@ const { v4: uuidv4 } = require('uuid');
 const Model = require('../models/sequelize');
 const TodoValidation = require('../validation/TodoValidation');
 
-
-
 // Todo 1: Write a custom validator that uses only javascript to validate this application need.
 // Todo 2: Complete other validation of the TodoService using validtor package or other third party solution.
 // Todo 3: Validate the user is sending property description
@@ -16,21 +14,20 @@ module.exports = class TodoService {
    * @param {number} priority Specify its priority
    */
   static async createTodo(description, priority) {
+    const { error, isValid } = await TodoValidation.todoCreation(description);
 
-    // // const {error, isValid } = await TodoValidation.todoCreation(description)
+    if (!isValid) {
+      throw new Error(error.description);
+    }
 
-    // if(!isValid) {
-    //   throw new Error(error.description);
-    // }
-  
+    // Sequelize
     let newTodo = Model.Todo.create({
       uniqueid: uuidv4(),
       description,
-      iscompleted: false,
+      iscompleted: false
     });
 
     return newTodo;
-
   }
 
   /**
@@ -58,7 +55,7 @@ module.exports = class TodoService {
    * @param {string} id means Todo unique id
    */
   static async deleteTodoById(id) {
-    return Todo.findOneAndRemove({ uniqueId: id, useFindModidy:true });
+    return Todo.findOneAndRemove({ uniqueId: id, useFindModidy: true });
   }
 };
 
