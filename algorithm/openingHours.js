@@ -134,9 +134,6 @@ const listOfWorkingHr = {
   };
   
   const printBusinessHour = (dayOfWeek, listOfBusinessHour) => {
-    //   console.log(listOfWorkingHr);
-    //   console.log("");
-    //   console.log("");
     process.stdout.write(dayOfWeek + ":");
     for (const hour of listOfBusinessHour) {
       process.stdout.write(hour.type + " ");
