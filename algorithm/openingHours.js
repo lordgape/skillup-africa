@@ -4,6 +4,14 @@ const listOfWorkingHr = {
         type: "close",
         value: 75600,
       },
+      {
+        type: "open",
+        value: 43200,
+      },
+      {
+        type: "close",
+        value: 75600,
+      },
     ],
     tuesday: [
       {
@@ -90,6 +98,9 @@ const listOfWorkingHr = {
       
       if (businessDayOpeningHours.length == 1 && businessDayOpeningHours[0].type == "close" && dayOfWeek == "monday" ) {
         printCloseBusinessDay(dayOfWeek);
+      }
+      if (businessDayOpeningHours.length > 1 && businessDayOpeningHours[0].type == "close" && dayOfWeek == "monday" ) {
+        printBusinessHour(dayOfWeek,businessDayOpeningHours.slice(1));
       }
   
       if (
