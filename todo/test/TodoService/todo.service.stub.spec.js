@@ -49,12 +49,12 @@ describe('TodoService: Using Stub Database', () => {
   });
 
   it('Can create a Todo', async () => {
-    let actual = await TodoService.createTodo('This is a test Todo');
-    let expected = await modelTodoStub.create('This is a test Todo');
+    const actual = await TodoService.createTodo('This is a test Todo');
+    const expected = await modelTodoStub.create('This is a test Todo');
 
     expect(actual.getModel()).to.deep.equal(expected.getModel());
   });
-  
+
   it('Reject Todo with no description', async () => {
     try {
       await TodoService.createTodo('');

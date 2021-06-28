@@ -12,6 +12,4 @@ sequelizeInstance
 
 let db = { Todo: Todo(sequelizeInstance, Sequelize.DataTypes) };
 
-console.log('I got here');
-
 module.exports = db;
