@@ -2,13 +2,14 @@ const { expect } = require('chai');
 const Commom = require('../../validation/Common');
 
 describe('Validation', () => {
-  it('Can validate empty string', () => {
+  it('Can validate empty property', () => {
     
     expect(Commom.isEmpty(null)).to.equal(true);
     expect(Commom.isEmpty(undefined)).to.equal(true);
     expect(Commom.isEmpty('')).to.equal(true);
     expect(Commom.isEmpty('  ')).to.equal(true);
     expect(Commom.isEmpty({})).to.equal(true);
+    expect(Commom.isEmpty([])).to.equal(true);
 
   });
 });
