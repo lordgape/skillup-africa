@@ -6,6 +6,9 @@ exist that have an age equal to 32. Then you should create a write stream to a f
 called output.txt and the contents should be the key values (from the json) each on a 
 separate line in the order they appeared in the  json file (the file should end with a 
 newline character on its own line). Finally, then output the SHA1 hash of the file.
+
+Example Input {"data":"key=IAfpK, age=32, key=WNVdi, age=64, key=jp9zt, age=40, key=9snd2, age=32"} 
+Example Output 7caa78c7180ea 52e5193d2b4c22e5e8a9e03b486
 */
 
 const https = require('https');
@@ -23,21 +26,35 @@ https.get(RESOURCE_URL, async (res) => {
 
   res.on('end', async () => {
     const jsonBody = JSON.parse(body).data;
-    const keyValueList = jsonBody.split(', ');
-    const numberOfAge32 = keyValueList.filter((item) => item == 'age=32').length;
+    let keyValueList = jsonBody.split(', ');
+    keyValueList = keyValueList.reduce(
+      (acc, cur) => {
+        const splitData = cur.split('=');
+        if (splitData[0] == 'key') {
+          acc.prev = splitData[1];
+        }
+        
+        if (splitData[0] == 'age' && splitData[1] == 32) {
+          acc.age32Keys.push(acc.prev);
+        }
 
-    keyValueList.unshift(numberOfAge32);
+        return acc;
+      },
+      { prev: '', age32Keys: [] }
+    );
+
+    keyValueList = keyValueList.age32Keys;
+
     const writeStream = fs.createWriteStream(FILE_NAME);
 
+    const hash = crypto.createHash('SHA1');
+
     for (const keyValue of keyValueList) {
-      writeStream.write(keyValue + '\n');
+      const fileData = keyValue + '\n';
+      writeStream.write(fileData);
+      hash.update(fileData);
     }
-
-    writeStream.write('\n');
-
-    let myHash = await getHash(FILE_NAME);
-
-    console.log(myHash);
+    console.log(hash.digest('hex'));
   });
 });
 
